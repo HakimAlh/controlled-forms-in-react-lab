@@ -33,7 +33,7 @@ const Bookshelf = () => {
 							<input type="text" onChange={handleInputChange} name="bookName" />
                             <label for="">Author:</label>
                             <input type="text" onChange={handleInputChange} name="author" />
-							<button type="submit">Submit</button>
+							<button type="submit">Add a Book!</button>
 						</form>
 					}
 				</div>
