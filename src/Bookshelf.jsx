@@ -1,0 +1,50 @@
+import { useState } from "react";
+
+const Bookshelf = () => {
+	const [books, setBooks] = useState([
+		{ title: "Fourth Wing", author: "Rebecca Yarros" },
+		{ title: "The Lion, the Witch and the Wardrobe", author: "C.S. Lewis" },
+	]);
+
+	const initialState = {
+		bookName: "",
+		author: "",
+	};
+
+	const [formData, setFormData] = useState(initialState);
+
+	const handleInputChange = (e) => {
+		setFormData({ ...formData, [e.target.name]: e.target.value });
+	};
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		setBooks([...books, formData]);
+	};
+
+	return (
+		<>
+			<div className="bookshelfDiv">
+				<div className="formDiv">
+					<h3>Add a Book</h3>
+					<form onSubmit={handleSubmit}>
+						<input type="text" onChange={handleInputChange} name="bookName" />
+						<input type="text" onChange={handleInputChange} name="author" />
+						<button type="submit">Submit</button>
+					</form>
+				</div>
+				<h3>My Books</h3>
+				<div className="bookCardsDiv">
+					{books.map((book) => (
+						<div>
+							<p>{book.bookName}</p>
+							<p>{book.author}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</>
+	);
+};
+
+export default Bookshelf;
