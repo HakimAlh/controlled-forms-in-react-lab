@@ -26,19 +26,23 @@ const Bookshelf = () => {
 		<>
 			<div className="bookshelfDiv">
 				<div className="formDiv">
-					<h3>Add a Book</h3>
-					<form onSubmit={handleSubmit}>
-						<input type="text" onChange={handleInputChange} name="bookName" />
-						<input type="text" onChange={handleInputChange} name="author" />
-						<button type="submit">Submit</button>
-					</form>
+					<h3>Add a Book!</h3>
+					{
+						<form onSubmit={handleSubmit}>
+                            <label for="">Title:</label>
+							<input type="text" onChange={handleInputChange} name="bookName" />
+                            <label for="">Author:</label>
+                            <input type="text" onChange={handleInputChange} name="author" />
+							<button type="submit">Submit</button>
+						</form>
+					}
 				</div>
-				<h3>My Books</h3>
 				<div className="bookCardsDiv">
 					{books.map((book) => (
 						<div>
 							<p>{book.bookName}</p>
 							<p>{book.author}</p>
+                            <hr/>
 						</div>
 					))}
 				</div>
